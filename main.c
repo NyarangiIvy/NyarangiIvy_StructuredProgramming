@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    int arr[101];
-    int n, i, val, pos;
+    int arr[100];
+    int n, i, j, temp;
 
     printf("Input the size of array : ");
     scanf("%d", &n);
@@ -13,24 +13,17 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    printf("Input the value to be inserted : ");
-    scanf("%d", &val);
-    printf("Input the Position, where the value to be inserted :");
-    scanf("%d", &pos);
-
-    printf("The current list of the array : ");
     for (i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+        for (j = i + 1; j < n; j++) {
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
     }
 
-    for (i = n; i >= pos; i--) {
-        arr[i] = arr[i - 1];
-    }
-
-    arr[pos - 1] = val;
-    n++;
-
-    printf("\nAfter Insert the element the new list is : ");
+    printf("\nElements of array in sorted ascending order: ");
     for (i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
