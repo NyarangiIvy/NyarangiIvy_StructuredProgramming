@@ -1,19 +1,23 @@
 #include <stdio.h>
 
-
-void swapNumbers(int *x, int *y) {
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
-
 int main() {
-    int a = 5, b = 10;
+    int matrix[6][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12},
+        {13, 14, 15, 16},
+        {17, 18, 19, 20},
+        {21, 22, 23, 24}
+    };
+    int i, j;
 
-    printf("Before swap: a = %d, b = %d\n", a, b);
+    printf("Traversing the 2D array:\n");
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
 
-    swapNumbers(&a, &b);
-
-    printf("After swap: a = %d, b = %d\n", a, b);
     return 0;
 }
